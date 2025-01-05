@@ -1,75 +1,79 @@
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import React, { useState } from "react";
 import { Layout, Menu } from "antd";
-import React from "react";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items = [
-  {
-    key: '1',
-    label: 'Dashboard',
-  },
-  {
-    key: '2',
-    label: 'Profile',
-  }
-]
+const ResponsiveLayout = () => {
+  const [collapsed, setCollapsed] = useState(false);
 
-const MainLayout = () => {
+  const toggleCollapse = () => {
+    setCollapsed(!collapsed); // Toggle between true and false
+  };
+
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
-        breakpoint="lg"
+        breakpoint="md"
         collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
+        collapsible
+        collapsed={collapsed}
+        onBreakpoint={(broken) => setCollapsed(broken)}
+        onCollapse={(collapsed) => setCollapsed(collapsed)}
+        style={{
+          position: "fixed",
+          height: "100vh",
+          left: 0,
+          zIndex: 10, // Ensure the sidebar is on top
         }}
       >
-        {/* header title */}
         <div
           style={{
-            color: 'white',
-
-            height: '4rem',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            color: "white",
+            height: "4rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <h1>PH Uni</h1>
         </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["4"]}
-          items={items}
-        />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+          <Menu.Item key="1">Dashboard</Menu.Item>
+          <Menu.Item key="2">Profile</Menu.Item>
+          <Menu.Item key="3">Profile2</Menu.Item>
+        </Menu>
       </Sider>
-      <Layout>
-        <Header style={{ padding: 0 }} />
-        <Content style={{ margin: "24px 16px 0" }}>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
-            content
+
+      <Layout style={{ marginLeft: collapsed ? "0" : "200px", transition: "margin-left 0.3s" }}>
+        <Header
+          style={{
+            padding: "0 16px",
+            background: "#fff",
+            display: "flex",
+            alignItems: "center",
+            position: "fixed",
+            width: "100%",
+            zIndex: 10, // Ensure header is on top
+          }}
+        >
+          {/* Toggle button */}
+          <div style={{ position: "relative", zIndex: 11 }}>
+            {collapsed ? (
+              <MenuUnfoldOutlined onClick={toggleCollapse} style={{ fontSize: "18px", cursor: "pointer" }} />
+            ) : (
+              <MenuFoldOutlined onClick={toggleCollapse} style={{ fontSize: "18px", cursor: "pointer" }} />
+            )}
           </div>
+          {/* <h2 style={{ marginLeft: "16px" }}>Responsive Header</h2> */}
+        </Header>
+        <Content style={{ margin: "64px 16px 0", overflow: "auto" }}>
+          <div style={{ padding: 24, minHeight: 360 }}>Content Area</div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+        <Footer style={{ textAlign: "center" }}>Ant Design ©{new Date().getFullYear()} Created by Ant UED</Footer>
       </Layout>
     </Layout>
   );
 };
 
-export default MainLayout;
+export default ResponsiveLayout;
