@@ -5,22 +5,23 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import React from "react";
+
 const { Header, Content, Footer, Sider } = Layout;
 
 const items = [
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-].map((icon, index) => ({
-  key: String(index + 1),
-  icon: React.createElement(icon),
-  label: `nav ${index + 1}`,
-}));
+  {
+    key: '1',
+    label: 'Dashboard',
+  },
+  {
+    key: '2',
+    label: 'Profile',
+  }
+]
 
 const MainLayout = () => {
   return (
-    <Layout>
+    <Layout style={{ height: "100vh" }}>
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
@@ -31,7 +32,19 @@ const MainLayout = () => {
           console.log(collapsed, type);
         }}
       >
-        <div className="demo-logo-vertical" />
+        {/* header title */}
+        <div
+          style={{
+            color: 'white',
+
+            height: '4rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <h1>PH Uni</h1>
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -48,7 +61,7 @@ const MainLayout = () => {
               minHeight: 360,
             }}
           >
-            {/* content */}
+            content
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
