@@ -40,8 +40,12 @@ const ResponsiveLayout = () => {
         >
           <h1>PH Uni</h1>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={adminSidebarItems} >
-        </Menu>
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["4"]}
+          items={adminSidebarItems}
+        ></Menu>
       </Sider>
 
       <Layout
