@@ -39,10 +39,7 @@ const ResponsiveLayout = () => {
         >
           <h1>PH Uni</h1>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">Dashboard</Menu.Item>
-          <Menu.Item key="2">Profile</Menu.Item>
-          <Menu.Item key="3">Profile2</Menu.Item>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={} >
         </Menu>
       </Sider>
 

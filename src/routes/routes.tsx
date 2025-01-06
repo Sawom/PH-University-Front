@@ -5,24 +5,33 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 
 const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <App></App>,
-        children:[
-            {
-                path:'about',
-                element: <About></About>
-            }
-        ]
-    },
-    {
-        path: '/login',
-        element: <Login></Login>
-    },
-    {
-        path: '/register',
-        element: <Register></Register>
-    }
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '/admin',
+    element: <App />,
+    // children: adminRoutes,
+  },
+  {
+    path: '/faculty',
+    element: <App />,
+    // children: adminRoutes,
+  },
+  {
+    path: '/student',
+    element: <App />,
+    // children: adminRoutes,
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+  },
 ]);
 
 export default router;
