@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Layout, Menu } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { Layout, Menu } from "antd";
+import { useState } from "react";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -45,7 +45,12 @@ const ResponsiveLayout = () => {
         </Menu>
       </Sider>
 
-      <Layout style={{ marginLeft: collapsed ? "0" : "200px", transition: "margin-left 0.3s" }}>
+      <Layout
+        style={{
+          marginLeft: collapsed ? "0" : "200px",
+          transition: "margin-left 0.3s",
+        }}
+      >
         <Header
           style={{
             padding: "0 16px",
@@ -60,17 +65,25 @@ const ResponsiveLayout = () => {
           {/* Toggle button */}
           <div style={{ position: "relative", zIndex: 11 }}>
             {collapsed ? (
-              <MenuUnfoldOutlined onClick={toggleCollapse} style={{ fontSize: "18px", cursor: "pointer" }} />
+              <MenuUnfoldOutlined
+                onClick={toggleCollapse}
+                style={{ fontSize: "18px", cursor: "pointer" }}
+              />
             ) : (
-              <MenuFoldOutlined onClick={toggleCollapse} style={{ fontSize: "18px", cursor: "pointer" }} />
+              <MenuFoldOutlined
+                onClick={toggleCollapse}
+                style={{ fontSize: "18px", cursor: "pointer" }}
+              />
             )}
           </div>
-          {/* <h2 style={{ marginLeft: "16px" }}>Responsive Header</h2> */}
+          <h2 style={{ marginLeft: "16px" }}>Menu</h2>
         </Header>
         <Content style={{ margin: "64px 16px 0", overflow: "auto" }}>
           <div style={{ padding: 24, minHeight: 360 }}>Content Area</div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>Ant Design ©{new Date().getFullYear()} Created by Ant UED</Footer>
+        <Footer style={{ textAlign: "center" }}>
+          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        </Footer>
       </Layout>
     </Layout>
   );
