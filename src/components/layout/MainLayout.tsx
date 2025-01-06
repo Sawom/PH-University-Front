@@ -1,6 +1,7 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -79,7 +80,10 @@ const ResponsiveLayout = () => {
           <h2 style={{ marginLeft: "16px" }}>Menu</h2>
         </Header>
         <Content style={{ margin: "64px 16px 0", overflow: "auto" }}>
-          <div style={{ padding: 24, minHeight: 360 }}>Content Area</div>
+          {/* content area */}
+          <div style={{ padding: 24, minHeight: 360 }}>
+            <Outlet></Outlet>
+          </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
           Ant Design ©{new Date().getFullYear()} Created by Ant UED
