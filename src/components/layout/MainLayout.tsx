@@ -2,6 +2,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { adminSidebarItems } from "../../routes/admin.routes";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -39,7 +40,7 @@ const ResponsiveLayout = () => {
         >
           <h1>PH Uni</h1>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={} >
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={adminSidebarItems} >
         </Menu>
       </Sider>
 
