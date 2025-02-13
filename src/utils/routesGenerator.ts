@@ -5,14 +5,14 @@ type TRoute = {
   element: ReactNode;
 };
 
-type TuserPath = {
+type TUserPath = {
   name: string;
   path?: string;
   element?: ReactNode;
-  children?: TuserPath[];
+  children?: TUserPath[];
 };
 
-export const routesGenerator = (items: TuserPath[]) => {
+export const routesGenerator = (items: TUserPath[]) => {
   const routes = items.reduce((acc: TRoute[], item) => {
     if (item.path && item.element) {
       acc.push({
