@@ -1,20 +1,12 @@
 import { Layout, Menu } from "antd";
-import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { adminPaths } from "../../routes/admin.routes";
-const {  Sider } = Layout;
+import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
+
+const { Sider } = Layout;
 
 const Sidebar = () => {
   return (
-    <Sider
-      breakpoint="md"
-      collapsedWidth="0"
-      style={{
-        position: "fixed",
-        height: "100vh",
-        left: 0,
-        zIndex: 10, // Ensure the sidebar is on top
-      }}
-    >
+    <Sider breakpoint="lg" collapsedWidth="0">
       <div
         style={{
           color: "white",
@@ -31,7 +23,7 @@ const Sidebar = () => {
         mode="inline"
         defaultSelectedKeys={["4"]}
         items={sidebarItemsGenerator(adminPaths, "admin")}
-      ></Menu>
+      />
     </Sider>
   );
 };
