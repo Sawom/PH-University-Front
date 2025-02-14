@@ -1,9 +1,8 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { adminPaths } from "../../routes/admin.routes";
-import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
+import Sidebar from "./Sidebar";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -16,39 +15,7 @@ const ResponsiveLayout = () => {
 
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider
-        breakpoint="md"
-        collapsedWidth="0"
-        collapsible
-        collapsed={collapsed}
-        onBreakpoint={(broken) => setCollapsed(broken)}
-        onCollapse={(collapsed) => setCollapsed(collapsed)}
-        style={{
-          position: "fixed",
-          height: "100vh",
-          left: 0,
-          zIndex: 10, // Ensure the sidebar is on top
-        }}
-      >
-        <div
-          style={{
-            color: "white",
-            height: "4rem",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <h1>PH Uni</h1>
-        </div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["4"]}
-          items={sidebarItemsGenerator(adminPaths, "admin")}
-        ></Menu>
-      </Sider>
-
+      <Sidebar />
       <Layout
         style={{
           marginLeft: collapsed ? "0" : "200px",
@@ -88,9 +55,6 @@ const ResponsiveLayout = () => {
             <Outlet></Outlet>
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
