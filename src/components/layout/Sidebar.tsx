@@ -5,6 +5,8 @@ import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 const { Sider } = Layout;
 
 const Sidebar = () => {
+
+
   return (
     <Sider breakpoint="lg" collapsedWidth="0">
       <div

@@ -1,6 +1,7 @@
 // local state handle korar jnno
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+
 type TAuthState = {
   user: null | object;
   token: null | string;
