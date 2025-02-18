@@ -9,8 +9,8 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      userId: "A-0002",
-      password: "admin123",
+      userId: "0001",
+      password: "admin12345",
     },
   });
 
