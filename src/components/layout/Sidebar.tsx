@@ -1,11 +1,38 @@
 import { Layout, Menu } from "antd";
+import { selectCurrentUser } from "../../redux/Features/auth/authSlice";
+import { useAppSelector } from "../../redux/Features/hooks";
 import { adminPaths } from "../../routes/admin.routes";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
+import facultyPaths from "../../routes/faculty.routes";
+import studentPaths from "../../routes/student.routes";
 
 const { Sider } = Layout;
 
-const Sidebar = () => {
+const userRole = {
+  ADMIN: "admin",
+  FACULTY: "faculty",
+  STUDENT: "student",
+};
 
+const Sidebar = () => {
+  const user = useAppSelector(selectCurrentUser);
+
+  let sidebarItems;
+
+  switch (user!.role) {
+    case userRole.ADMIN:
+      sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
+      break;
+    case userRole.FACULTY:
+      sidebarItems = sidebarItemsGenerator(facultyPaths, userRole.FACULTY);
+      break;
+    case userRole.STUDENT:
+      sidebarItems = sidebarItemsGenerator(studentPaths, userRole.STUDENT);
+      break;
+
+    default:
+      break;
+  }
 
   return (
     <Sider breakpoint="lg" collapsedWidth="0">
