@@ -4,7 +4,7 @@ import { logout } from "../../redux/Features/auth/authSlice";
 import { useAppDispatch } from "../../redux/Features/hooks";
 import Sidebar from "./Sidebar";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content } = Layout;
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
