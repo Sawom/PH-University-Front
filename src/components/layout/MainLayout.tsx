@@ -1,22 +1,25 @@
-import { Layout } from "antd";
-import { useState } from "react";
+import { Button, Layout } from "antd";
 import { Outlet } from "react-router-dom";
+import { logout } from "../../redux/Features/auth/authSlice";
+import { useAppDispatch } from "../../redux/Features/hooks";
 import Sidebar from "./Sidebar";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const ResponsiveLayout = () => {
-  const [collapsed, setCollapsed] = useState(false);
+const MainLayout = () => {
+  const dispatch = useAppDispatch();
 
-  const toggleCollapse = () => {
-    setCollapsed(!collapsed); // Toggle between true and false
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
     <Layout style={{ height: "100vh" }}>
       <Sidebar />
       <Layout>
-        <Header style={{ padding: 0 }} />
+        <Header style={{ padding: 0 }}>
+          <Button onClick={handleLogout}>Logout</Button>
+        </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
@@ -32,4 +35,4 @@ const ResponsiveLayout = () => {
   );
 };
 
-export default ResponsiveLayout;
+export default MainLayout;
