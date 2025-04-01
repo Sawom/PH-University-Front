@@ -1,34 +1,22 @@
-import { ReactNode } from "react";
-import {
-  FieldValues,
-  FormProvider,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { Input } from "antd";
+import { Controller } from "react-hook-form";
 
-type TFormConfig = {
-  defaultValues?: Record<string, any>;
+type TInputProps = {
+  type: string;
+  name: string;
+  label?: string;
 };
 
-type TFormProps = {
-  onSubmit: SubmitHandler<FieldValues>;
-  children: ReactNode;
-} & TFormConfig;
-
-const PHForm = ({ onSubmit, children, defaultValues }: TFormProps) => {
-  const formConfig: TFormConfig = {};
-
-  if (defaultValues) {
-    formConfig["defaultValues"] = defaultValues;
-  }
-
-  const methods = useForm(formConfig);
-
+const PHInput = ({ type, name, label }: TInputProps) => {
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
-    </FormProvider>
+    <div style={{ marginBottom: "20px" }}>
+      {label ? label : null}
+      <Controller
+        name={name}
+        render={({ field }) => <Input {...field} type={type} id={name} />}
+      />
+    </div>
   );
 };
 
-export default PHForm;
+export default PHInput;
