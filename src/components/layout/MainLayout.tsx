@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import { logout } from "../../redux/Features/auth/authSlice";
 import { useAppDispatch } from "../../redux/Features/hooks";
 import Sidebar from "./Sidebar";
-
 const { Header, Content } = Layout;
 
 const MainLayout = () => {
@@ -14,10 +13,10 @@ const MainLayout = () => {
   };
 
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "100%" }}>
       <Sidebar />
       <Layout>
-        <Header style={{ padding: 0 }}>
+        <Header >
           <Button onClick={handleLogout}>Logout</Button>
         </Header>
         <Content style={{ margin: "24px 16px 0" }}>
