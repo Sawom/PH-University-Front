@@ -13,13 +13,6 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  // const { register, handleSubmit } = useForm({
-  //   defaultValues: {
-  //     userId: "0001",
-  //     password: "admin12345",
-  //   },
-  // });
-
   const defaultValues = {
     userId: "A-0002",
     password: "admin12345",
