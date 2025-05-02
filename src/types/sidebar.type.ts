@@ -1,7 +1,5 @@
 import { ReactNode } from "react";
 
-
-
 export type TRoute = {
   path: string;
   element: ReactNode;
@@ -12,7 +10,6 @@ export type TSidebarItem = {
   label: ReactNode;
   children?: TSidebarItem[];
 };
-
 
 export type TUserPath = {
   name: string;
