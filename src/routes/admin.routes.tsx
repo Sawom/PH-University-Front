@@ -5,15 +5,15 @@ import CreateAcademicDepartment from "../pages/Admin/academicManagement/CreateAc
 import CreateAcademicFaculty from "../pages/Admin/academicManagement/CreateAcademicFaculty";
 import CreateAcademicSemester from "../pages/Admin/academicManagement/CreateAcademicSemester";
 import AdminDashboard from "../pages/Admin/AdminDashboard";
-import CreateAdmin from "../pages/Admin/CreateAdmin";
-import CreateFaculty from "../pages/Admin/CreateFaculty";
-import CreateStudent from "../pages/Admin/CreateStudent";
+import CreateAdmin from "../pages/Admin/userManagement/CreateAdmin";
+import CreateFaculty from "../pages/Admin/userManagement/CreateFaculty";
+import CreateStudent from "../pages/Admin/userManagement/CreateStudent";
 
 export const adminPaths = [
   {
     name: "Dashboard",
     path: "dashboard",
-    element: <AdminDashboard></AdminDashboard>,
+    element: <AdminDashboard />,
   },
   {
     name: "Academic Management",
@@ -68,11 +68,6 @@ export const adminPaths = [
         path: "create-student",
         element: <CreateStudent />,
       },
-      {
-        name: "Create Member",
-        path: "create-member",
-        element: <CreateStudent />,
-      },
     ],
   },
 ];
@@ -99,24 +94,3 @@ export const adminPaths = [
 
 //   return acc;
 // }, []);
-
-//! Hard coded way***********************
-
-// export const adminPaths = [
-//   {
-//     path: 'dashboard',
-//     element: <AdminDashboard />,
-//   },
-//   {
-//     path: 'create-student',
-//     element: <CreateStudent />,
-//   },
-//   {
-//     path: 'create-admin',
-//     element: <CreateAdmin />,
-//   },
-//   {
-//     path: 'create-faculty',
-//     element: <CreateFaculty />,
-//   },
-// ];
