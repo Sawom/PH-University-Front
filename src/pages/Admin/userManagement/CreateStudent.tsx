@@ -1,12 +1,15 @@
-import { Controller, FieldValues, SubmitHandler } from 'react-hook-form';
-import { Button, Col, Divider, Form, Input, Row } from 'antd';
-import { useGetAllSemestersQuery } from '../../../redux/Features/admin/academicManagement.api';
-import { useAddStudentMutation } from '../../../redux/Features/admin/userManagement.api';
-import PHForm from '../../../components/form/PHForm';
-import PHInput from '../../../components/form/PHInput';
-import PHSelect from '../../../components/form/PHSelect';
-import PHDatePicker from '../../../components/form/PHDatePicker';
-import { bloodGroupOptions, genderOptions } from '../../../constants/global';
+import { Button, Col, Divider, Form, Input, Row } from "antd";
+import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
+import PHDatePicker from "../../../components/form/PHDatePicker";
+import PHForm from "../../../components/form/PHForm";
+import PHInput from "../../../components/form/PHInput";
+import PHSelect from "../../../components/form/PHSelect";
+import { bloodGroupOptions, genderOptions } from "../../../constants/global";
+import {
+  useGetAcademicDepartmentsQuery,
+  useGetAllSemestersQuery,
+} from "../../../redux/Features/admin/academicManagement.api";
+import { useAddStudentMutation } from "../../../redux/Features/admin/userManagement.api";
 
 const studentDummyData = {
   password: "student123",
