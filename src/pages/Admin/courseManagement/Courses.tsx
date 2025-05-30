@@ -6,6 +6,7 @@ import {
   useAddFacultiesMutation,
   useGetAllCoursesQuery,
 } from "../../../redux/Features/admin/courseManagement";
+import { useGetAllFacultiesQuery } from "../../../redux/Features/admin/userManagement.api";
 
 const Courses = () => {
   // const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
