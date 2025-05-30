@@ -1,7 +1,11 @@
-import { Button, Modal, Table } from 'antd';
-import PHForm from '../../../components/form/PHForm';
-import PHSelect from '../../../components/form/PHSelect';
-import { useState } from 'react';
+import { Button, Modal, Table } from "antd";
+import { useState } from "react";
+import PHForm from "../../../components/form/PHForm";
+import PHSelect from "../../../components/form/PHSelect";
+import {
+  useAddFacultiesMutation,
+  useGetAllCoursesQuery,
+} from "../../../redux/Features/admin/courseManagement";
 
 const Courses = () => {
   // const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
@@ -16,18 +20,18 @@ const Courses = () => {
 
   const columns = [
     {
-      title: 'Title',
-      key: 'title',
-      dataIndex: 'title',
+      title: "Title",
+      key: "title",
+      dataIndex: "title",
     },
     {
-      title: 'Code',
-      key: 'code',
-      dataIndex: 'code',
+      title: "Code",
+      key: "code",
+      dataIndex: "code",
     },
     {
-      title: 'Action',
-      key: 'x',
+      title: "Action",
+      key: "x",
       render: (item) => {
         return <AddFacultyModal facultyInfo={item} />;
       },
