@@ -2,6 +2,8 @@ import { Button, Col, Flex } from 'antd';
 import { useState } from 'react';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
 import PHForm from '../../../components/form/PHForm';
+import PHSelectWithWatch from '../../../components/form/PHSelectWithWatch';
+import PHInput from '../../../components/form/PHInput';
 
 const OfferCourse = () => {
   const [id, setId] = useState('');
