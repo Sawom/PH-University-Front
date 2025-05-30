@@ -34,7 +34,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   if (result?.error?.status === 404) {
     toast.error(result.error.data.message);
   }
-
   if (result?.error?.status === 401) {
     //* Send Refresh
     console.log("Sending refresh token");
@@ -42,7 +41,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     const res = await fetch("http://localhost:5000/api/v1/auth/refresh-token", {
       method: "POST",
       credentials: "include",
-      // cokkie request er sathe send korbe. js browser er cookie access korte pare na
     });
 
     const data = await res.json();
@@ -69,5 +67,6 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: baseQueryWithRefreshToken,
+  tagTypes: ["semester", "courses"],
   endpoints: () => ({}),
 });
