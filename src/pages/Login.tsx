@@ -18,6 +18,8 @@ const Login = () => {
     password: "admin12345",
   };
 
+  // student id: 2025030002, pass: student123
+
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
