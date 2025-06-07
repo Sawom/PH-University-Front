@@ -12,6 +12,7 @@ type TProtectedRoute = {
 const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
   const token = useAppSelector(useCurrentToken);
 
+  // redux theke use nicchi na, token k verrify korchi
   let user;
 
   if (token) {
