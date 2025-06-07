@@ -17,6 +17,7 @@ import {
   useGetAllRegisteredSemestersQuery,
   useGetCourseFacultiesQuery,
 } from "../../../redux/Features/admin/courseManagement";
+import { weekDaysOptions } from "../../../constants/global";
 
 const OfferCourse = () => {
   const [courseId, setCourseId] = useState("");
