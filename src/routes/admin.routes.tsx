@@ -15,7 +15,7 @@ import CreateFaculty from "../pages/Admin/userManagement/CreateFaculty";
 import CreateStudent from "../pages/Admin/userManagement/CreateStudent";
 import StudentData from "../pages/Admin/userManagement/StudentData";
 import StudentDetails from "../pages/Admin/userManagement/StudentDetails";
-import OfferedCourse from "../pages/Faculty/OfferedCourse";
+import OfferedCourse from "../pages/Faculty/MyCourses";
 
 export const adminPaths = [
   {
