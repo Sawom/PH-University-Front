@@ -1,13 +1,13 @@
 import { Layout, Menu } from "antd";
-import { selectCurrentUser } from "../../redux/Features/auth/authSlice";
+import { TUser, useCurrentToken } from "../../redux/Features/auth/authSlice";
 import { useAppSelector } from "../../redux/Features/hooks";
-import facultyPaths from "../../routes/faculty.routes";
 import { adminPaths } from "../../routes/admin.routes";
+import { facultyPaths } from "../../routes/faculty.routes";
 import { studentPaths } from "../../routes/student.routes";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
+import { verifyToken } from "../../utils/verifyToken";
 
 const { Sider } = Layout;
-
 const userRole = {
   ADMIN: "admin",
   FACULTY: "faculty",
@@ -15,11 +15,17 @@ const userRole = {
 };
 
 const Sidebar = () => {
-  const user = useAppSelector(selectCurrentUser);
+  const token = useAppSelector(useCurrentToken);
+
+  let user;
+
+  if (token) {
+    user = verifyToken(token);
+  }
 
   let sidebarItems;
 
-  switch (user!.role) {
+  switch ((user as TUser)!.role) {
     case userRole.ADMIN:
       sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
       break;
@@ -49,7 +55,7 @@ const Sidebar = () => {
           alignItems: "center",
         }}
       >
-        <h1>PH University</h1>
+        <h1>PH Uni</h1>
       </div>
       <Menu
         theme="dark"
