@@ -37,7 +37,7 @@ const OfferCourse = () => {
   const { data: coursesData } = useGetAllCoursesQuery(undefined);
 
   const { data: facultiesData, isFetching: fetchingFaculties } =
-    useGetCourseFacultiesQuery(courseId, { skip: !courseId });
+    useGetCourseFacultiesQuery(courseId, { skip: !courseId }); //initially skip true korlam zotokkhn na porjonto course er data ashe
 
   const semesterRegistrationOptions = semesterRegistrationData?.data?.map(
     (item) => ({
