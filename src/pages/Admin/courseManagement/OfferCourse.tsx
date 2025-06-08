@@ -2,6 +2,7 @@ import { Button, Col, Flex } from "antd";
 import moment from "moment";
 import { useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import { toast } from "sonner";
 import PHForm from "../../../components/form/PHForm";
 import PHInput from "../../../components/form/PHInput";
 import PHSelect from "../../../components/form/PHSelect";
@@ -18,6 +19,7 @@ import {
   useGetAllRegisteredSemestersQuery,
   useGetCourseFacultiesQuery,
 } from "../../../redux/Features/admin/courseManagement";
+import { TResponse } from "../../../types";
 
 const OfferCourse = () => {
   const [courseId, setCourseId] = useState("");
@@ -69,6 +71,8 @@ const OfferCourse = () => {
   }));
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const toastId = toast.loading("Creating...");
+
     const offeredCourseData = {
       ...data,
       maxCapacity: Number(data.maxCapacity),
@@ -77,8 +81,17 @@ const OfferCourse = () => {
       endTime: moment(new Date(data.endTime)).format("HH:mm"),
     };
 
-    const res = await addOfferedCourse(offeredCourseData);
-    console.log(res);
+    try {
+      const res = (await addOfferedCourse(offeredCourseData)) as TResponse<any>;
+      console.log(res);
+      if (res.error) {
+        toast.error(res.error.data.message, { id: toastId });
+      } else {
+        toast.success("Course created", { id: toastId });
+      }
+    } catch (err) {
+      toast.error("Something went wrong", { id: toastId });
+    }
   };
 
   return (
