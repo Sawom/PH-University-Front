@@ -1,9 +1,9 @@
 import {
   BaseQueryApi,
   BaseQueryFn,
-  createApi,
   DefinitionType,
   FetchArgs,
+  createApi,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 import { toast } from "sonner";

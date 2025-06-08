@@ -18,13 +18,13 @@ const Login = () => {
     password: "admin12345",
   };
 
-  // student id: 2025030002, pass: student123
+  // student id: 2025030002, pass: student1234
+  // faculty id: F-0001 , pass: faculty1234
 
   const [login] = useLoginMutation();
 
   const onSubmit = async (data: FieldValues) => {
     console.log(data);
-
     const toastId = toast.loading("Logging in");
 
     try {
@@ -33,6 +33,7 @@ const Login = () => {
         password: data.password,
       };
       const res = await login(userInfo).unwrap();
+
       const user = verifyToken(res.data.accessToken) as TUser;
       dispatch(setUser({ user: user, token: res.data.accessToken }));
       toast.success("Logged in", { id: toastId, duration: 2000 });
@@ -48,7 +49,7 @@ const Login = () => {
   };
 
   return (
-    <Row justify="center" align={"middle"} style={{ height: "50vh" }}>
+    <Row justify="center" align="middle" style={{ height: "50vh" }}>
       <PHForm onSubmit={onSubmit} defaultValues={defaultValues}>
         <PHInput type="text" name="userId" label="ID:" />
         <PHInput type="text" name="password" label="Password" />

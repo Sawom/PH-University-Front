@@ -1,5 +1,8 @@
-import { Button, Col, Row } from 'antd';
-import { useEnrolCourseMutation, useGetAllOfferedCoursesQuery } from '../../redux/Features/student/studentCourseManagement.api';
+import { Button, Col, Row } from "antd";
+import {
+  useEnrolCourseMutation,
+  useGetAllOfferedCoursesQuery,
+} from "../../redux/Features/student/studentCourseManagement.api";
 
 type TCourse = {
   [index: string]: any;
@@ -41,8 +44,8 @@ const OfferedCourse = () => {
     <Row gutter={[0, 20]}>
       {modifiedData.map((item) => {
         return (
-          <Col span={24} style={{ border: 'solid #d4d4d4 2px' }}>
-            <div style={{ padding: '10px' }}>
+          <Col span={24} style={{ border: "solid #d4d4d4 2px" }}>
+            <div style={{ padding: "10px" }}>
               <h2>{item.courseTitle}</h2>
             </div>
             <div>
@@ -51,11 +54,11 @@ const OfferedCourse = () => {
                   <Row
                     justify="space-between"
                     align="middle"
-                    style={{ borderTop: 'solid #d4d4d4 2px', padding: '10px' }}
+                    style={{ borderTop: "solid #d4d4d4 2px", padding: "10px" }}
                   >
                     <Col span={5}>Section: {section.section} </Col>
                     <Col span={5}>
-                      days:{' '}
+                      days:{" "}
                       {section.days.map((day) => (
                         <span> {day} </span>
                       ))}
@@ -77,3 +80,23 @@ const OfferedCourse = () => {
 };
 
 export default OfferedCourse;
+
+// [
+//   { course: { title: 'React' }, section: 1, _id: 'sdfasdfasdfas45345' },
+//   { course: { title: 'React' }, section: 2, _id: 'sdfasdfasdfas45345' },
+//   { course: { title: 'Redux' }, section: 1, _id: 'sdfasdfasdfas45345' },
+// ];
+
+// [
+//   {
+//     courseTitle: 'React',
+//     sections: [
+//       { section: 1, _id: 'ADFa4345basdfa' },
+//       { section: 2, _id: 'ADFa4345basdf3' },
+//     ],
+//   },
+//   {
+//     courseTitle: 'Redux',
+//     sections: [{ section: 1, _id: 'ADFa4345basdfa' }],
+//   },
+// ];

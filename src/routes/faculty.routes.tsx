@@ -1,9 +1,18 @@
-const facultyPaths = [
-    {
-       name: '',
-       path: '',
-       element: '', 
-    }
-]
+import FacultyDashboard from "../pages/Faculty/FacultyDashboard";
 
-export default facultyPaths;
+export const facultyPaths = [
+  {
+    name: 'Dashboard',
+    path: 'dashboard',
+    element: <FacultyDashboard />,
+  },
+  {
+    name: 'My Courses',
+    path: 'courses',
+    element: <MyCourses />,
+  },
+  {
+    path: 'courses/:registerSemesterId/:courseId',
+    element: <MyStudents />,
+  },
+];
