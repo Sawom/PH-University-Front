@@ -7,6 +7,7 @@ import PHInput from "../../../components/form/PHInput";
 import PHSelect from "../../../components/form/PHSelect";
 import PHSelectWithWatch from "../../../components/form/PHSelectWithWatch";
 import PHTimePicker from "../../../components/form/PHTimePicker";
+import { weekDaysOptions } from "../../../constants/global";
 import {
   useGetAcademicDepartmentsQuery,
   useGetAcademicFacultiesQuery,
@@ -17,7 +18,6 @@ import {
   useGetAllRegisteredSemestersQuery,
   useGetCourseFacultiesQuery,
 } from "../../../redux/Features/admin/courseManagement";
-import { weekDaysOptions } from "../../../constants/global";
 
 const OfferCourse = () => {
   const [courseId, setCourseId] = useState("");
